@@ -4,13 +4,16 @@ cache: bundler
 rvm:
 - 2.4.2
 before_install:
-  - gem install bundler
-  - bundle install
+- gem install bundler
+- bundle install
 before_script:
-- "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - "./cc-test-reporter before-build"
 after_script:
 - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 notifications:
   email: false
+env:
+  global:
+    secure: iF5n3c/Rq5y8j+0PpX0rHaWbtXIQjTGlnGrlYYW2DH+9H2M4DKBMY3IL/UH228Xn9pghVkSLp+EfNFbeH3l4nrBM777FQ/ouH8Y6vRVcgJzkCTvk8O78k7sdY6aOwSr93RIxhH95qI/7Qs93Mjbaj1E5Hk3nQT2zPcuiV1pPjaahlNEfkEGvO52AF+z1NIddv67wrEXZOJKC8l61BFlnpa0xsY7iqGLYS/YCrFklo2+lBeFZGdaaIRfAS0ooxarlmZTwtAviYxDxAq/E3rNH29l70wVwYNq0zc32a+J2ZFYHKD9z6ALC5Mk52AS02JwK152AqiG8QYh025viVw7QOhWc/N07NxXuWA9sRKkajXByWAYj5b87/m6AWJAxncr+jd1UFHMDiXS5ow2rbUVnF4sVNGm+5uvTE4hThqAtDL/cqqr7N+kG5ml1x9WQfcUYLSK/Ocr9WyZrgj21e7z7RybclcIjQq4kUyvIkwYa39bMeaIrPuCQzgHnZq8HkWk2YDJ89ITFfcLKOYLqkzsrjH4IKaOGEpfGnMrAcLu/kI180muTxDuLW7z7/EwCW0f+Stn2gN3rnGGcpPOAUoWvIrI3OL865z/HQ/XvJ9yodHwjDgw3wO2luSXMi2ndxastQemDwDgsryEHfgGe9gbNLoWnRpRsYXICp4Hco991+8w=
